@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>راهنمای نصب بیگ‌بلوباتن | مدرسه مجازی دانیار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e1033;--bg2:#161a4d;--card:#1b2058;--line:#2e357f;--ink:#eef0ff;--mute:#a9aedc;--acc:#8b9bff;--acc2:#5fe0d1;--warn:#ffb86b;--term:#080a24;--r:18px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:2;font-size:16px;
+background-image:radial-gradient(900px 500px at 85% -5%,#3a43b8 0,transparent 60%),radial-gradient(700px 500px at 0% 30%,#0f6b7a55 0,transparent 60%);background-attachment:fixed}
+a{color:var(--acc2)}
+.nav{position:sticky;top:0;z-index:20;background:#0e1033d9;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+.nav a{flex:none;color:var(--mute);text-decoration:none;font-size:13.5px;padding:2px 12px;border-radius:99px;border:1px solid transparent;white-space:nowrap}
+.nav a:hover,.nav a.on{color:var(--ink);border-color:var(--line);background:var(--card)}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+.hero{padding:64px 0 36px}
+.hero small{color:var(--acc2);font-weight:600}
+.hero h1{font-size:clamp(34px,8vw,62px);font-weight:900;line-height:1.35;margin:6px 0 14px;letter-spacing:-.5px}
+.hero h1 span{background:linear-gradient(100deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mute);max-width:560px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:0 14px;font-size:13.5px}
+.req{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:26px 0}
+.req div{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:var(--r);padding:14px 18px}
+.req b{display:block;font-size:22px;font-weight:800;color:var(--acc2);direction:ltr;text-align:right}
+.req span{color:var(--mute);font-size:13.5px}
+section{padding:34px 0 6px}
+h2{font-size:26px;font-weight:800;margin-bottom:6px}
+h2 i{font-style:normal;color:var(--acc);margin-left:8px}
+p.lead{color:var(--mute);margin-bottom:14px}
+.steps{position:relative;margin-top:14px;padding-right:34px}
+.steps:before{content:"";position:absolute;right:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--acc),var(--acc2),transparent)}
+.step{position:relative;margin-bottom:22px}
+.step:before{content:"";position:absolute;right:-30px;top:12px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--acc2)}
+.step h3{font-size:17px;font-weight:700}
+.step p{color:var(--mute);font-size:15px}
+.code{position:relative;direction:ltr;text-align:left;background:var(--term);border:1px solid var(--line);border-radius:14px;margin:8px 0;overflow:hidden}
+.code pre{padding:14px 78px 14px 16px;overflow-x:auto;font:13.5px/1.8 ui-monospace,Menlo,Consolas,monospace;color:#cfe4ff;white-space:pre}
+.code pre:before{content:"$ ";color:var(--acc2)}
+.code.nop pre:before{content:""}
+.code button{position:absolute;right:8px;top:8px;font:600 12px Vazirmatn,sans-serif;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:2px 12px;cursor:pointer}
+.code button:hover{border-color:var(--acc2)}
+.code button.ok{background:var(--acc2);color:#05302c}
+.note{border-right:4px solid var(--warn);background:#ffb86b14;border-radius:12px;padding:10px 16px;margin:12px 0;font-size:15px}
+.note b{color:var(--warn)}
+.tip{border-right-color:var(--acc2);background:#5fe0d112}.tip b{color:var(--acc2)}
+ul.parts{list-style:none;padding:0;margin:10px 0}
+ul.parts li{padding:4px 0;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--mute)}
+ul.parts code{direction:ltr;display:inline-block;color:var(--acc2);background:var(--term);padding:0 8px;border-radius:6px;font-size:13px}
+.tabs{display:flex;gap:8px;margin:14px 0 0}
+.tabs button{flex:1;font:600 15px Vazirmatn,sans-serif;padding:8px 10px;border-radius:14px 14px 0 0;border:1px solid var(--line);border-bottom:0;background:var(--bg2);color:var(--mute);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink)}
+.tabs button.cf[aria-selected=true]{box-shadow:inset 0 3px 0 #f6821f}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:0 0 var(--r) var(--r);padding:20px 20px 8px}
+.panel[hidden]{display:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14.5px;background:var(--term);border-radius:12px;overflow:hidden}
+th,td{padding:6px 12px;border-bottom:1px solid var(--line);text-align:right}
+th{color:var(--mute);font-weight:600}
+td.l{direction:ltr;text-align:left;color:#cfe4ff}
+.cloud{display:inline-block;width:12px;height:12px;border-radius:50%;background:#9aa0c9;vertical-align:middle;margin-left:6px}
+.done{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;margin:14px 0}
+.done div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 16px;font-size:14.5px}
+.done div:before{content:"✓";color:var(--acc2);font-weight:800;margin-left:10px}
+footer{margin-top:60px;padding:46px 0 40px;border-top:1px solid var(--line);text-align:center;background:linear-gradient(transparent,#080a2499)}
+footer .logo{width:120px;max-width:40%;height:auto;border-radius:20px;display:block;margin:0 auto 14px}
+footer .logo-fb{display:none;font-size:34px;font-weight:900;letter-spacing:2px;margin-bottom:10px;direction:ltr}
+footer p{color:var(--mute);font-size:14.5px}
+footer p b{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--acc2);outline-offset:2px}
+
+#bar{position:fixed;top:0;right:0;left:0;height:3px;transform-origin:right;transform:scaleX(0);background:linear-gradient(90deg,var(--acc2),var(--acc));box-shadow:0 0 12px var(--acc2);z-index:50}
+#bg{position:fixed;inset:0;z-index:-1;pointer-events:none}
+#pc{flex:none;white-space:nowrap;margin-left:6px;font-size:12.5px;color:var(--acc2)}
+.tm{margin-top:30px;max-width:640px;direction:ltr;text-align:left;background:var(--term);border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 80px -30px #5b6bffaa;transition:transform .25s ease-out}
+.tm .hd{display:flex;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.tm .hd i{width:10px;height:10px;border-radius:50%;background:#ff6b8b}.tm .hd i:nth-child(2){background:#ffb86b}.tm .hd i:nth-child(3){background:#5fe0d1}
+.tm pre{padding:14px 16px;min-height:150px;font:13px/1.9 ui-monospace,Menlo,Consolas,monospace;color:#cfe4ff;white-space:pre-wrap;word-break:break-all}
+.tm .ok{color:var(--acc2)}
+.caret{display:inline-block;width:8px;height:15px;margin-left:2px;background:var(--acc2);vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.steps:after{content:"";position:absolute;right:11px;top:8px;width:2px;height:var(--f,0px);background:var(--acc2);box-shadow:0 0 14px var(--acc2)}
+.step:before{transition:background .4s,box-shadow .4s,border-color .4s}
+.step.pass:before{background:var(--acc2);box-shadow:0 0 0 6px #5fe0d11f}
+.step h3{cursor:pointer;width:fit-content;transition:color .3s}
+.step h3:hover{color:var(--acc2)}
+.step.dn h3{color:var(--mute);text-decoration:line-through;text-decoration-color:var(--acc2)}
+.step.dn h3:after{content:" ✓";color:var(--acc2)}
+.step.dn:before{border-color:var(--acc);background:var(--acc)}
+h2:after{content:"";display:block;height:3px;width:0;margin-top:2px;border-radius:3px;background:linear-gradient(90deg,var(--acc2),var(--acc));transition:width .9s cubic-bezier(.2,.8,.2,1)}
+section.in h2:after{width:72px}
+.req div,.done div{position:relative;overflow:hidden}
+.req div:after,.done div:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(200px circle at var(--mx,50%) var(--my,50%),#8b9bff3a,transparent 70%)}
+.req div:hover:after,.done div:hover:after{opacity:1}
+.panel{animation:pin .35s ease-out}
+@keyframes pin{from{opacity:0;transform:translateY(8px)}}
+.code{transition:border-color .25s,box-shadow .25s}.code:hover{border-color:var(--acc);box-shadow:0 10px 30px -14px #5b6bffaa}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="bar"></div><canvas id="bg"></canvas>
+<nav class="nav" id="nav">
+<a href="#s1">پیش‌نیازها</a><a href="#s2">DNS</a><a href="#s3">نصب</a><a href="#s4">بررسی</a><a href="#s5">فارسی‌سازی</a><a href="#s6">گرین‌لایت</a><a href="#s7">ادمین</a><a href="#s8">ثبت‌نام معلم</a><a href="#s9">ساخت اتاق</a><a href="#s10">ورود دانش‌آموز</a><a href="#s11">برندسازی</a><a href="#s12">جمع‌بندی</a>
+</nav>
+
+<main class="wrap">
+<header class="hero">
+<small>مدرسه مجازی دانیار · ۱۴۰۵</small>
+<h1>نصب و راه‌اندازی سرور <span>بیگ‌بلوباتن</span></h1>
+<p>راهنمای گام‌به‌گام برای ساختن کلاس آنلاین خودتان؛ از سرور خام تا اتاقی که معلم‌ها و دانش‌آموزان در آن وارد می‌شوند.</p>
+<div class="meta"><span class="chip">ShKiLLeR , SinaDPM:تهیه‌کنندگان</span><span class="chip">زمان نصب: حدود ۳۰ دقیقه</span></div>
+<div class="tm"><div class="hd"><i></i><i></i><i></i></div><pre id="tp"></pre></div>
+</header>
+
+<section id="s1">
+<h2><i>۱</i>پیش‌نیازها و آماده‌سازی سرور</h2>
+<div class="req">
+<div><b>Ubuntu 22.04</b><span>نسخه تازه و تمیز</span></div>
+<div><b>4 CPU · 16 GB</b><span>هسته و رم؛ ۵۰ گیگ فضای خالی</span></div>
+<div><b>80 · 443 · 16384–32768</b><span>پورت‌های TCP و UDP (بازه آخر UDP)</span></div>
+</div>
+<p class="lead">با SSH وارد سرور شوید و دستورات را به ترتیب اجرا کنید.</p>
+<div class="steps">
+<div class="step"><h3>به‌روزرسانی لیست پکیج‌ها</h3><p>آخرین نسخه نرم‌افزارها را از مخزن اوبونتو می‌گیرد.</p><div class="code"><pre>sudo apt update</pre></div></div>
+<div class="step"><h3>ارتقاء همه پکیج‌ها</h3><p>گزینه <code dir="ltr">-y</code> یعنی همه سوال‌ها را بله بگو.</p><div class="code"><pre>sudo apt upgrade -y</pre></div></div>
+<div class="step"><h3>پاک‌سازی فایل‌های اضافی</h3><p>پکیج‌های غیرضروری حذف می‌شوند تا فضا آزاد شود.</p><div class="code"><pre>sudo apt autoremove -y</pre></div></div>
+<div class="step"><h3>غیرفعال کردن موقت فایروال</h3><p>برای نصب بدون مشکل، فایروال را موقتاً خاموش می‌کنیم.</p><div class="code"><pre>sudo ufw disable</pre></div></div>
+</div>
+</section>
+
+<section id="s2">
+<h2><i>۲</i>تنظیم دامنه (DNS)</h2>
+<p class="lead">یک دامنه یا ساب‌دامنه مثل <b dir="ltr">bbb.danyar.ir</b> را به آی‌پی عمومی سرور اشاره دهید. بدون این کار، مراحل بعدی (به‌خصوص SSL) خطا می‌دهند.</p>
+<div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-t="p1">روش عادی (پنل دامنه)</button>
+<button role="tab" aria-selected="false" data-t="p2" class="cf">روش Cloudflare</button>
+</div>
+<div class="panel" id="p1">
+<div class="steps">
+<div class="step"><h3>ورود به پنل مدیریت دامنه</h3><p>به بخش مدیریت DNS دامنه‌تان بروید.</p></div>
+<div class="step"><h3>ساخت رکورد A</h3><p>یک رکورد از نوع A بسازید و مقدار آن را برابر آی‌پی سرور بگذارید.</p></div>
+</div>
+</div>
+<div class="panel" id="p2" hidden>
+<div class="steps">
+<div class="step"><h3>افزودن دامنه به Cloudflare</h3><p>در <a href="https://dash.cloudflare.com" dir="ltr">dash.cloudflare.com</a> وارد شوید، Add a domain را بزنید و دامنه اصلی (مثلاً danyar.ir) را وارد کنید. پلن Free کافی است.</p></div>
+<div class="step"><h3>تغییر Nameserver</h3><p>Cloudflare دو نیم‌سرور به شما می‌دهد. در پنل ثبت دامنه، نیم‌سرورهای قبلی را با این دو جایگزین کنید و منتظر بمانید تا وضعیت دامنه Active شود (چند دقیقه تا چند ساعت).</p></div>
+<div class="step"><h3>ساخت رکورد A</h3><p>از منوی DNS ← Records روی Add record بزنید و این مقادیر را وارد کنید:</p>
+<table><tr><th>فیلد</th><th>مقدار</th></tr>
+<tr><td>Type</td><td class="l">A</td></tr>
+<tr><td>Name</td><td class="l">bbb</td></tr>
+<tr><td>IPv4 address</td><td class="l">IP of your server</td></tr>
+<tr><td>Proxy status</td><td><span class="cloud"></span>DNS only (ابر خاکستری)</td></tr>
+<tr><td>TTL</td><td class="l">Auto</td></tr></table></div>
+</div>
+<div class="note"><b>مهم:</b> پروکسی را خاموش (ابر خاکستری) نگه دارید. بیگ‌بلوباتن صدا و تصویر را روی پورت‌های UDP می‌فرستد و Cloudflare این ترافیک را از مسیر پروکسی عبور نمی‌دهد؛ با ابر نارنجی، کلاس بالا می‌آید ولی صدا و تصویر کار نمی‌کند. صدور SSL هم باید مستقیم روی سرور انجام شود.</div>
+<div class="note tip"><b>بررسی:</b> بعد از چند دقیقه با این دستور مطمئن شوید دامنه به آی‌پی سرور اشاره می‌کند:
+<div class="code"><pre>ping bbb.danyar.ir</pre></div></div>
+</div>
+</section>
+
+<section id="s3">
+<h2><i>۳</i>نصب بیگ‌بلوباتن با اسکریپت</h2>
+<p class="lead">حدود ۳۰ دقیقه طول می‌کشد. دامنه و ایمیل را با مقادیر خودتان عوض کنید.</p>
+<div class="code"><button>کپی</button><pre>wget -qO- https://raw.githubusercontent.com/bigbluebutton/bbb-install/v3.0.x-release/bbb-install.sh | sudo bash -s -- -w -v jammy-300 -s bbb.danyar.ir -e admin@danyar.ir -w -g</pre></div>
+<ul class="parts">
+<li><code>wget -qO-</code> دانلود فایل از اینترنت؛ <code>-q</code> بی‌صدا و <code>-O-</code> خروجی مستقیم</li>
+<li><code>bbb-install.sh</code> آدرس اسکریپت نصب خودکار از سایت رسمی</li>
+<li><code>| sudo bash -s --</code> محتوای دانلودشده را اجرا می‌کند</li>
+<li><code>-w</code> فایروال UFW را نصب و پورت‌های لازم را باز می‌کند</li>
+<li><code>-v jammy-300</code> نسخه ۳.۰ را روی اوبونتو ۲۲.۰۴ نصب می‌کند</li>
+<li><code>-s bbb.danyar.ir</code> دامنه‌ای که برای سرور انتخاب کرده‌اید</li>
+<li><code>-e admin@danyar.ir</code> ایمیل برای گواهینامه SSL از Let's Encrypt</li>
+</ul>
+</section>
+
+<section id="s4">
+<h2><i>۴</i>بررسی نصب و گرفتن Secret</h2>
+<div class="steps">
+<div class="step"><h3>بررسی سلامت نصب</h3><p>اگر همه‌چیز سبز بود، نصب درست انجام شده است.</p><div class="code"><pre>sudo bbb-conf --check</pre></div></div>
+<div class="step"><h3>گرفتن رمز Secret</h3><p>این رمز برای اتصال نرم‌افزارهای دیگر به بیگ‌بلوباتن لازم است. حتماً یادداشتش کنید.</p><div class="code"><pre>sudo bbb-conf --secret</pre></div></div>
+</div>
+</section>
+
+<section id="s5">
+<h2><i>۵</i>فارسی‌سازی کامل</h2>
+<div class="steps">
+<div class="step"><h3>ویرایش فایل تنظیمات زبان</h3><p>خط <code dir="ltr">overrideLocale: null</code> را پیدا کنید و به <code dir="ltr">overrideLocale: fa_IR</code> تغییر دهید. ذخیره: Ctrl+X ، Y ، Enter</p><div class="code"><button>کپی</button><pre>sudo nano /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml</pre></div></div>
+<div class="step"><h3>ویرایش فایل ظاهر کلاس</h3><p>این خطوط را به انتهای فایل اضافه کنید و ذخیره کنید.</p><div class="code"><button>کپی</button><pre>sudo nano /etc/bigbluebutton/bbb-html5.yml</pre></div>
+<div class="code nop"><button>کپی</button><pre>public:
+  app:
+    defaultSettings:
+      application:
+        locale: fa_IR</pre></div></div>
+<div class="step"><h3>ری‌استارت بیگ‌بلوباتن</h3><p>بعد از هر تغییر لازم است؛ حدود ۲ دقیقه طول می‌کشد.</p><div class="code"><button>کپی</button><pre>sudo bbb-conf --restart</pre></div></div>
+</div>
+</section>
+
+<section id="s6">
+<h2><i>۶</i>نصب و فارسی‌سازی گرین‌لایت</h2>
+<p class="lead">گرین‌لایت همان وب‌سایتی است که کاربران با آن ثبت‌نام می‌کنند، اتاق می‌سازند و جلسات را می‌بینند.</p>
+<div class="code"><button>کپی</button><pre>wget -qO- https://raw.githubusercontent.com/bigbluebutton/bbb-install/v3.0.x-release/bbb-install.sh | sudo bash -s -- -g</pre></div>
+<p class="lead">بعد از نصب، وارد سایت شوید (مثل bbb.danyar.ir)، روی آواتار بالا سمت راست کلیک کنید، Settings را باز کنید و زبان را روی فارسی بگذارید.</p>
+</section>
+
+<section id="s7">
+<h2><i>۷</i>ساختن ادمین اصلی</h2>
+<div class="code"><button>کپی</button><pre>docker exec -it greenlight-v3 bundle exec rake admin:create['مدیرکل','admin@danyar.ir','MyStrongPass123!']</pre></div>
+<ul class="parts">
+<li><code>docker exec</code> به درون یک کانتینر (محیط مجازی کوچک) برو</li>
+<li><code>-it greenlight-v3</code> مشخص می‌کند به کانتینر گرین‌لایت بروی</li>
+<li><code>rake admin:create</code> اسکریپت داخلی ساخت ادمین</li>
+<li><code>['نام','ایمیل','رمز']</code> مشخصات ادمین</li>
+</ul>
+<div class="note"><b>توجه:</b> رمز نمونه را حتماً با رمز قوی و مخصوص خودتان عوض کنید.</div>
+<p class="lead">اگر دستور بالا خطا داد، این را اجرا کنید:</p>
+<div class="code"><button>کپی</button><pre>docker exec -it greenlight-v3 bundle exec rake admin:create</pre></div>
+<p class="lead">حالا با همان ایمیل و رمز وارد سایت شوید. در منوی بالا گزینه Organization را می‌بینید که مخصوص ادمین است.</p>
+</section>
+
+<section id="s8">
+<h2><i>۸</i>تنظیم ثبت‌نام معلم‌ها</h2>
+<p class="lead">وارد Organization شوید و به Site Settings بروید.</p>
+<div class="req">
+<div><b style="font-size:17px;direction:rtl">ثبت‌نام عمومی</b><span>گزینه «Allow anyone to sign up» را فعال کنید تا هر معلم خودش ثبت‌نام کند.</span></div>
+<div><b style="font-size:17px;direction:rtl">ثبت‌نام با دعوت‌نامه</b><span>گزینه بالا را غیرفعال کنید، از بخش Users روی «Invite User» بزنید و ایمیل معلم را وارد کنید.</span></div>
+</div>
+</section>
+
+<section id="s9">
+<h2><i>۹</i>ساخت اتاق شخصی توسط معلم</h2>
+<div class="steps">
+<div class="step"><h3>شروع ساخت اتاق</h3><p>بعد از ورود به سایت، روی «+ شروع اتاق جدید» (Create Room) کلیک کنید.</p></div>
+<div class="step"><h3>نام کلاس</h3><p>در کادر Room Name نام کلاس را بنویسید، مثلاً «کلاس ریاضی دهم».</p></div>
+<div class="step"><h3>تنظیمات پیشرفته (اختیاری)</h3><p>در Advanced Settings می‌توانید مثلاً اجازه ورود قبل از مدرس را فعال کنید.</p></div>
+<div class="step"><h3>ساخت اتاق</h3><p>روی Create کلیک کنید.</p></div>
+<div class="step"><h3>شروع کلاس</h3><p>روی «ورود به اتاق» (Join Room) بزنید. بیگ‌بلوباتن باز می‌شود و معلم به عنوان مدرس (Moderator) وارد می‌شود.</p></div>
+<div class="step"><h3>دعوت دانش‌آموزان</h3><p>از منوی بالا گزینه Invite را انتخاب و لینک را کپی کنید.</p></div>
+<div class="step"><h3>ارسال لینک</h3><p>لینک را از طریق واتساپ، تلگرام یا ایمیل برای دانش‌آموزان بفرستید.</p></div>
+</div>
+</section>
+
+<section id="s10">
+<h2><i>۱۰</i>نحوه ورود دانش‌آموز به کلاس</h2>
+<div class="steps">
+<div class="step"><h3>کلیک روی لینک</h3><p>دانش‌آموز روی لینکی که معلم فرستاده کلیک می‌کند.</p></div>
+<div class="step"><h3>وارد کردن نام</h3><p>فقط نامش پرسیده می‌شود، مثلاً «علی رضایی».</p></div>
+<div class="step"><h3>ورود به کلاس</h3><p>به عنوان شنونده (Viewer) وارد می‌شود. حساب کاربری و ثبت‌نام لازم نیست.</p></div>
+</div>
+</section>
+
+<section id="s11">
+<h2><i>۱۱</i>برندسازی (لوگو و اسم سایت)</h2>
+<div class="steps">
+<div class="step"><h3>تغییر لوگو از پنل مدیریت (راحت‌ترین روش)</h3><p>Organization ← Site Settings ← بخش Branding Image، آدرس اینترنتی لوگوی جدید را وارد کنید (لوگو باید روی یک هاست عمومی آپلود شده باشد) و روی «Change Image» بزنید.</p></div>
+<div class="step"><h3>تغییر نام سایت</h3><p>در همان صفحه، گزینه Application Name یا Site Title را پیدا کنید، «BigBlueButton» را با «مدرسه مجازی دانیار» عوض و ذخیره کنید.</p></div>
+<div class="step"><h3>تغییر لوگو از خط فرمان (اگر روش قبل جواب نداد)</h3><p>لوگو را با نام logo.png در پوشه زیر بگذارید و لینک را بسازید:</p>
+<div class="code"><button>کپی</button><pre>sudo mkdir -p /var/bigbluebutton/customLogo/</pre></div>
+<div class="code"><button>کپی</button><pre>sudo ln -sf /var/bigbluebutton/customLogo/logo.png /var/www/bigbluebutton-default/assets/images/logo.png</pre></div></div>
+</div>
+</section>
+
+<section id="s12">
+<h2><i>۱۲</i>جمع‌بندی و نکات پایانی</h2>
+<p class="lead">تبریک! سرور شما آماده است:</p>
+<div class="done"><div>بیگ‌بلوباتن نصب شده</div><div>محیط به فارسی ترجمه شده</div><div>لوگو و نام سایت تغییر کرده</div><div>ادمین ساخته شده</div><div>معلم‌ها می‌توانند ثبت‌نام کنند و اتاق بسازند</div><div>دانش‌آموزان بدون عضویت وارد کلاس می‌شوند</div></div>
+<div class="note"><b>اگر به خطا خوردید</b>، این سه مورد را بررسی کنید: دامنه درست به آی‌پی سرور اشاره کند؛ پورت‌های ۸۰، ۴۴۳ و ۱۶۳۸۴ تا ۳۲۷۶۸ باز باشند؛ اینترنت سرور پایدار باشد.</div>
+</section>
+</main>
+
+<footer>
+<img class="logo" src="https://cdn.imgurl.ir/uploads/m746278_file_00000000121472468a639ee04338d364.png" alt="Z.ROOYAL" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+<div class="logo-fb">Z.ROOYAL</div>
+<p>تمامی حقوق این سایت مال برند <b>Z.ROOYAL</b> می‌باشد.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.code button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.parentNode.querySelector('pre').textContent;
+    var done=function(){b.textContent='کپی شد';b.classList.add('ok');setTimeout(function(){b.textContent='کپی';b.classList.remove('ok')},1500)};
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,done)}else{done()}
+  });
+});
+document.querySelectorAll('.tabs button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+    ['p1','p2'].forEach(function(id){document.getElementById(id).hidden=(id!==b.dataset.t)});
+  });
+});
+var links=[].slice.call(document.querySelectorAll('#nav a'));
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section').forEach(function(s){io.observe(s)});
+
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var bar=document.getElementById('bar'),steps=[].slice.call(document.querySelectorAll('.step')),lists=[].slice.call(document.querySelectorAll('.steps')),tk=0;
+function frame(){tk=0;var h=document.documentElement,mx=h.scrollHeight-innerHeight;bar.style.transform='scaleX('+(mx>0?scrollY/mx:0)+')';var line=innerHeight*.62;
+lists.forEach(function(l){var r=l.getBoundingClientRect();l.style.setProperty('--f',Math.max(0,Math.min(r.height-16,line-r.top))+'px')});
+steps.forEach(function(s){s.classList.toggle('pass',s.getBoundingClientRect().top<line)})}
+addEventListener('scroll',function(){if(!tk)tk=requestAnimationFrame(frame)},{passive:true});addEventListener('resize',frame);frame();
+var key='bbb-guide-done',saved={};try{saved=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+var pc=document.createElement('span');pc.id='pc';document.getElementById('nav').prepend(pc);
+function upd(){var n=document.querySelectorAll('.step.dn').length;pc.textContent='پیشرفت '+Math.round(n/steps.length*100).toLocaleString('fa-IR')+'٪'}
+steps.forEach(function(s,i){var h=s.querySelector('h3');h.title='برای علامت‌گذاری مرحله کلیک کنید';h.tabIndex=0;if(saved[i])s.classList.add('dn');
+function t(){s.classList.toggle('dn');saved[i]=s.classList.contains('dn')?1:0;try{localStorage.setItem(key,JSON.stringify(saved))}catch(e){}upd()}
+h.addEventListener('click',t);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
+upd();
+document.querySelectorAll('.req div,.done div').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')})});
+var tm=document.querySelector('.tm'),hero=document.querySelector('.hero');
+if(!rm){hero.addEventListener('pointermove',function(e){var r=tm.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;tm.style.transform='perspective(900px) rotateY('+(x*-6)+'deg) rotateX('+(y*5)+'deg)'});hero.addEventListener('pointerleave',function(){tm.style.transform=''})}
+var out=document.getElementById('tp'),sl=function(ms){return new Promise(function(r){setTimeout(r,rm?0:ms)})};
+async function type(t){var d=document.createElement('div');d.innerHTML='<span class="ok">$ </span><span></span><i class="caret"></i>';out.appendChild(d);var sp=d.children[1];for(var c of t){sp.textContent+=c;await sl(26+Math.random()*40)}d.querySelector('.caret').remove()}
+function say(h){var d=document.createElement('div');d.innerHTML=h;out.appendChild(d);return d}
+async function run(){do{out.innerHTML='';await type('ssh root@bbb.danyar.ir');await sl(400);say('<span class="ok">✓</span> connected');await sl(300);await type('sudo bash bbb-install.sh -v jammy-300 -s bbb.danyar.ir');await sl(300);var p=say('');for(var i=0;i<=20;i++){p.textContent='installing ['+'█'.repeat(i)+'░'.repeat(20-i)+'] '+i*5+'%';await sl(110)}await sl(200);say('<span class="ok">✓ BigBlueButton is ready</span>');say('<span class="ok">→ https://bbb.danyar.ir</span>');await sl(4500)}while(!rm)}
+run();
+var cv=document.getElementById('bg'),cx=cv.getContext('2d'),W,H,P=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;P=Array.from({length:Math.min(60,W/18|0)},function(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3}})}
+function dr(){cx.clearRect(0,0,W,H);P.forEach(function(a,i){a.x=(a.x+a.vx+W)%W;a.y=(a.y+a.vy+H)%H;cx.fillStyle='#8b9bff88';cx.fillRect(a.x,a.y,2,2);for(var j=i+1;j<P.length;j++){var b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){cx.strokeStyle='rgba(139,155,255,'+(.18*(1-d/120))+')';cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}});if(!rm)requestAnimationFrame(dr)}
+addEventListener('resize',rs);rs();dr();
+</script>
+</body>
+</html>
